@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Praneeth Putta — Developer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E1416;
+    --bg-raised: #141C1F;
+    --text: #E7EEEE;
+    --text-dim: #8FA0A3;
+    --accent: #5FE0C7;
+    --line: #223034;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --disp: 'Space Grotesk', 'Inter', sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #0E1416; --bg-raised: #141C1F; --text: #E7EEEE; --text-dim: #8FA0A3; --accent: #5FE0C7; --line: #223034;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans);
+    line-height: 1.6; font-size: 16px;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+
+  header.hero {
+    padding: 90px 0 60px; border-bottom: 1px solid var(--line);
+  }
+  .role-tag { color: var(--accent); font-family: var(--disp); font-size: 15px; margin-bottom: 14px; }
+  h1 { font-family: var(--disp); font-weight: 700; font-size: clamp(34px, 6vw, 54px); margin: 0 0 16px; letter-spacing: -0.01em; }
+  .tagline { color: var(--text-dim); font-size: 18px; max-width: 60ch; margin: 0 0 28px; }
+  .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; }
+  .links a {
+    text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color .15s ease;
+  }
+  .links a:hover { border-color: var(--accent); }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-family: var(--disp); font-size: 24px; font-weight: 600; margin: 0 0 26px; }
+
+  .about p { color: var(--text-dim); max-width: 68ch; font-size: 16px; }
+
+  .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 24px; }
+  .exp-item .when { color: var(--text-dim); font-size: 14px; padding-top: 3px; }
+  .exp-item .role { font-family: var(--disp); font-size: 18px; font-weight: 600; margin: 0 0 4px; }
+  .exp-item .org { color: var(--accent); font-size: 15px; margin: 0 0 10px; }
+  .exp-item .desc { color: var(--text-dim); font-size: 15px; margin: 0; max-width: 56ch; }
+
+  .projects { display: flex; flex-direction: column; gap: 20px; }
+  .proj {
+    background: var(--bg-raised); border: 1px solid var(--line); border-radius: 6px;
+    padding: 22px 24px; transition: border-color .15s ease;
+  }
+  .proj:hover { border-color: var(--accent); }
+  .proj-name { font-family: var(--disp); font-size: 18px; font-weight: 600; margin: 0 0 8px; }
+  .proj-desc { color: var(--text-dim); font-size: 15px; margin: 0 0 14px; max-width: 64ch; }
+  .proj-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .stack { display: flex; gap: 8px; flex-wrap: wrap; }
+  .stack span {
+    font-size: 12.5px; color: var(--text-dim); border: 1px solid var(--line); border-radius: 4px; padding: 3px 9px;
+  }
+  .proj-link { font-size: 14px; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  .proj-link:hover { border-color: var(--accent); }
+
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skills-grid span {
+    font-family: var(--disp); font-size: 14px; padding: 7px 14px; border: 1px solid var(--line); border-radius: 4px; color: var(--text);
+  }
+
+  footer.contact { padding: 56px 0 90px; }
+  footer.contact p { color: var(--text-dim); margin: 0 0 20px; max-width: 56ch; }
+  .contact-list { display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+  .contact-list a { text-decoration: none; border-bottom: 1px solid var(--line); width: fit-content; padding-bottom: 1px; }
+  .contact-list a:hover { border-color: var(--accent); }
+
+  @media (max-width: 560px) {
+    .exp-item { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="role-tag">Full-Stack Developer · B.Tech CSE</div>
+    <h1>Praneeth Putta</h1>
+    <p class="tagline">I build full-stack web applications and computer-vision tools — from Django-backed platforms to gesture-controlled interfaces. Currently interning at IncuXAI, open to new internship opportunities.</p>
+    <div class="links">
+      <a href="https://github.com/Praneeth43" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/putta-praneeth-811448425" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:p.praneethreddyyy@gmail.com">Email</a>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>B.Tech student at Marri Laxman Reddy Institute of Technology and Management (2024–2028), currently holding a CGPA of 8.3. I work across Python, Java, and JavaScript, with a focus on full-stack web development and applied computer vision. I'm open for internships.</p>
+  </section>
+
+  <section class="experience">
+    <h2>Experience</h2>
+    <div class="exp-item">
+      <div class="when">May 2026 — Present</div>
+      <div>
+        <p class="role">Web Development Intern</p>
+        <p class="org">IncuXAI</p>
+        <p class="desc">Building responsive, database-integrated full-stack web applications using Django, HTML, CSS, JavaScript, and Bootstrap.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="proj">
+        <p class="proj-name">AI Virtual Mouse &amp; Keyboard</p>
+        <p class="proj-desc">A real-time system that enables cursor control, click actions, and keyboard input using hand gestures captured through a webcam, eliminating the need for a physical mouse or keyboard.</p>
+        <div class="proj-meta">
+          <div class="stack"><span>Python</span><span>OpenCV</span><span>MediaPipe</span><span>PyAutoGUI</span></div>
+          <a class="proj-link" href="https://github.com/Praneeth43/virtual-keyboard/tree/main" target="_blank" rel="noopener">View repo →</a>
+        </div>
+      </div>
+      <div class="proj">
+        <p class="proj-name">Voice Command Assistant</p>
+        <p class="proj-desc">An intelligent voice-controlled assistant that listens to spoken commands and performs automated tasks, showcasing integration of speech recognition with Python scripting.</p>
+        <div class="proj-meta">
+          <div class="stack"><span>Python</span><span>Speech Recognition</span><span>Automation</span><span>JavaScript</span></div>
+          <a class="proj-link" href="https://github.com/Praneeth43/voice-command/tree/main" target="_blank" rel="noopener">View repo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <span>Python</span><span>Java</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>SQL</span><span>Django</span><span>Bootstrap</span><span>Git &amp; GitHub</span>
+    </div>
+  </section>
+
+  <footer class="contact">
+    <h2>Contact</h2>
+    <p>Open for internships — feel free to reach out.</p>
+    <div class="contact-list">
+      <a href="mailto:p.praneethreddyyy@gmail.com">p.praneethreddyyy@gmail.com</a>
+      <a href="tel:+919391192964">+91 93911 92964</a>
+      <a href="https://github.com/Praneeth43" target="_blank" rel="noopener">github.com/Praneeth43</a>
+      <a href="https://www.linkedin.com/in/putta-praneeth-811448425" target="_blank" rel="noopener">linkedin.com/in/putta-praneeth-811448425</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
